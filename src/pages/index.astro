@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Beranda">
+  <main>
+    <p class="p-[40px] text-center text-[36px] italic font-normal">
+      Selamat Datang di Layanan Tiket Online Mata Air Senjoyo!
+    </p>
+    <div
+      id="gallery"
+      class="relative w-full h-[500px] m-auto"
+      data-carousel="slide"
+    >
+      <!-- Carousel wrapper -->
+      <div class="relative h-full overflow-hidden md:h-96">
+        <!-- Item 1 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img
+            src="/assets/1.jpg"
+            class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            alt=""
+          />
+        </div>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img
+            src="/assets/2.jpg"
+            class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            alt=""
+          />
+        </div>
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img
+            src="/assets/3.jpg"
+            class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            alt=""
+          />
+        </div>
+        <!-- Item 4 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img
+            src="/assets/4.jpg"
+            class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <a
+      href="/pesan"
+      class="text-center m-auto flex justify-center rounded-lg border p-[10px] px-[40px] bg-[#d9d9d9] font-semibold hover:text-white hover:bg-[#5b5b5b] text-[24px] mb-[20px] w-[15%]"
+    >PESAN TIKET</a>
+
+    <div
+      class="tentang"
+    >
+      Tentang Mata Air Senjoyo
+    </div>
+    <div class="tulisan">
+      Wisata Sumber Air merupakan salah satu potensi wisata di Desa Tegalwaton.
+      Keindahan pemandangan serta sejuknya udara dapat menarik banyak wisatawan
+      untuk berkunjung ke tempat ini. Air yang dihasilkan menjadi sumber
+      kehidupan bagi masyarakat sekitar. Umbul Senjoyo menjadi salah satu sumber
+      mata air terbesar yang telah dimanfaatkan menjadi pemandian dan sumber air
+      baku Kota Salatiga. Sumber mata air yang terletak di Dusun Jubug ini
+      memiliki legenda yang tersohor yaitu Legenda Jaka Tingkir dimana petilasan
+      Jaka Tingkir berada di bukit yang mengelilingi pemandian Senjoyo.
+    </div>
+
+    <!-- footer -->
+  </main>
+</Layout>
+
+<style>
+  .tentang{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 50px;
+  }
+  .tulisan {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 25px;
+  }
+</style>

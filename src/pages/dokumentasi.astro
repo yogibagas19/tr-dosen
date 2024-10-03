@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Search from "../components/Search"
+---
+
+<Layout title="Dokumentasi">
+  <main>
+    <h1 class="font-[700] text-center text-[30px] mt-[55px]">
+      Dokumentasi Website Mata Air Senjoyo
+    </h1>
+    <div class="atas">
+      <img src="/assets/logo.png" alt="logo" />
+      <div class="garis"></div>
+      <p>MENJELAJAH KEINDAHAN MATA AIR SENJOYO</p>
+    </div>
+    <div class="kedua text-[25px] w-[80%] m-auto">
+      Wisata Sumber Air merupakan salah satu potensi wisata di Desa Tegalwaton.
+      Keindahan pemandangan serta sejuknya udara dapat menarik banyak wisatawan
+      untuk berkunjung ke tempat ini. Air yang dihasilkan menjadi sumber
+      kehidupan bagi masyarakat sekitar. Umbul Senjoyo menjadi salah satu sumber
+      mata air terbesar yang telah dimanfaatkan menjadi pemandian dan sumber air
+      baku Kota Salatiga. Sumber mata air yang terletak di Dusun Jubug ini
+      memiliki legenda yang tersohor yaitu Legenda Jaka Tingkir dimana petilasan
+      Jaka Tingkir berada di bukit yang mengelilingi pemandian Senjoyo.
+    </div>
+    <div class="panduan font-[700] text-[30px] text-center mt-[30px] mb-[30px]">
+      Panduan menggunakan website Mata Air Senjoyo sebagai Pengunjung
+    </div>
+    <div class="tujuan w-[80%] m-auto">
+      <span class="font-semibold text-[25px]">Tujuan dan sasaran</span>
+      <ul class="text-[25px] mb-[20px]">
+        <li>
+          - Tujuan utama website ini adalah untuk memperkenalkan dan
+          mempromosikan Mata Air Senjoyo sebagai destinasai wisata alam yang
+          menarik.
+        </li>
+        <li>
+          - Sasaran utama pengunjung website ini adalah wisatawan lokal maupun
+          mancanegara yang tertarik dengan wisata alam dan budaya
+        </li>
+      </ul>
+    </div>
+    <p class="text-[25px] font-semibold w-[80%] m-auto">
+      Struktur dan konten website pengunjung
+    </p>
+    <Search />
+  </main>
+</Layout>
+
+<style lang="scss">
+  .atas {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    margin: auto;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+    img {
+      height: 400px;
+      width: auto;
+    }
+    .garis {
+      width: 5px;
+      height: 200px;
+      background-color: black;
+      box-shadow: 5px 5px 5px black;
+    }
+    p {
+      font-size: 45px;
+      font-weight: 500;
+    }
+  }
+</style>

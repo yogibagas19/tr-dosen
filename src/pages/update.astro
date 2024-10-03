@@ -1,0 +1,67 @@
+---
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const id = data.get("id");
+    const nama = data.get("nama");
+    const nomor = data.get("nomor");
+    const email = data.get("email");
+    const datas = { nama, nomor, email };
+
+    await fetch(`http://localhost:3211/update/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(datas),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    // Do something with the data
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<main>
+  <div class="wrapper w-[30%] ml-[30px]">
+    <a href="/admin">kembali</a>
+    <h1>Update Data</h1>
+    <form id="updateData" method="post" class="flex flex-col">
+      <label for="id">ID</label>
+      <input type="text" name="id" id="id" required />
+
+      <label for="kolom1">Nama</label>
+      <input type="text" name="nama" id="nama" />
+
+      <label for="kolom2">Nomor Telepon</label>
+      <input type="tel" name="nomor" id="nomor" />
+
+      <label for="kolom3">Email</label>
+      <input type="email" name="email" id="email" />
+
+      <button type="submit" class="p-5 border border-black mx-auto mt-5 w-1/2"
+        >Update</button
+      >
+    </form>
+  </div>
+</main>
+
+<!-- <style>
+  .wrapper {
+    width: 30%;
+    margin-left: 30px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    padding: 20px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 20px;
+    width: 50%;
+  }
+</style> -->

@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// if (Astro.request.method === "POST") {
+//   try {
+//     const data = await Astro.request.formData();
+//     const id = data.get("id");
+
+//     await fetch("http://localhost:3211/detail", {
+//       method: "POST",
+//       body: JSON.stringify(id),
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     });
+//   } catch (error) {
+//     if (error instanceof Error) {
+//       console.error(error.message);
+//     }
+//   }
+// }
+
+const data = await Astro.request.formData();
+const id = data.get("id");
+
+const response = await fetch(`http://localhost:3211/detail/${id}`);
+const blogs = await response.json();
+console.log(blogs);
+---
+
+<Layout title="Detail Pembayaran">
+  <main>
+    <div class="wrapper">
+      <div class="pencarian">
+        <form method="POST">
+          <label
+            >Cari Pesanan :
+            <input
+              type="text"
+              name="id"
+              placeholder="Nama Pemesan"
+              class="cari"
+            />
+          </label>
+          <button type="submit">Cari</button>
+        </form>
+      </div>
+
+      <p>Detail Pesanan</p>
+
+      <div class="pertama">
+        <label>
+          Nama
+          <input type="text" name="nama" disabled />
+        </label>
+        <label>
+          Email
+          <input type="text" name="email" disabled />
+        </label>
+        <label>
+          No Telepon
+          <input type="text" name="nomor" disabled />
+        </label>
+        <div class="alert">
+          <span class="material-symbols-outlined"> error </span>
+          Informasi tiket dan konfirmasi akan dikirim detail ke kontak anda yang
+          sudah tertera.
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      width: 60%;
+      margin: auto;
+      font-size: 30px;
+      font-weight: 600;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .pertama {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      margin: auto;
+      gap: 20px;
+      background-color: #d9d9d9;
+      padding: 50px 70px;
+      border-radius: 20px;
+
+      label {
+        display: flex;
+        flex-direction: column;
+      }
+
+      input {
+        border: none;
+        background-color: #d9d9d9;
+      }
+    }
+  }
+
+  .pencarian {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .cari {
+    border: none;
+    border-bottom: 1px solid black;
+
+    input:focus {
+      outline: none;
+      border: none;
+      box-shadow: none;
+    }
+  }
+  button {
+    border: 1px solid black;
+    padding: 10px 25px;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+
+    &:hover {
+      background-color: #5b5b5b;
+      color: white;
+    }
+  }
+</style>

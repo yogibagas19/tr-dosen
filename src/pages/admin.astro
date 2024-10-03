@@ -1,0 +1,181 @@
+---
+import Tablerow from "../components/tablerow.astro";
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const id = data.get("id");
+    
+    await fetch(`http://localhost:3211/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+
+const response = await fetch("http://localhost:3211/admin");
+const blogs = await response.json();
+---
+<head>
+  <title>Admin</title>
+</head>
+<div class="header">
+  <a href="/">kembali</a>
+  <img src="/assets/logo.png" />
+</div>
+<form method="post">
+  <label>Delete</label>
+  <input type="text" id="id" name="id" placeholder="Masukkan id" />
+  <button type="submit">Hapus</button>
+</form>
+
+<div class="wrapper">
+  <div class="kiri">
+    <a href="/update">Update data</a>
+  </div>
+
+  <div class="kanan relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table
+      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+    >
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3"> ID </th>
+          <th scope="col" class="px-6 py-3"> Nama </th>
+          <th scope="col" class="px-6 py-3"> Nomor Telepon </th>
+          <th scope="col" class="px-6 py-3"> email </th>
+          <th scope="col" class="px-6 py-3"> Bank </th>
+          <th scope="col" class="px-6 py-3"> Tanggal Pemesanan </th>
+          <th scope="col" class="px-6 py-3"> Tiket </th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          blogs.getData.data.map((blog) => {
+            console.log(blog);
+            return (
+              <Tablerow
+                id={blog.id}
+                nama={blog.nama}
+                no_hp={blog.nomor}
+                email={blog.email}
+                bank={blog.bank}
+                tanggal_pemesanan={blog.jadwal}
+                tiket={blog.tiket}
+              />
+            );
+          })
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- <script>
+  document
+    .getElementById("deleteData")
+    .addEventListener("submit", async (e) => {
+      e.preventDefault(); // Prevent the form from submitting the traditional way
+
+      const recordIdInput = document.getElementById(
+        "recordId"
+      ) as HTMLInputElement;
+      const recordId = recordIdInput.value;
+
+      try {
+        const response = await fetch(
+          `http://localhost:3211/delete/${recordId}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const result = await response.json();
+        document.getElementById("responseMessage").innerText = response.ok
+          ? "Record deleted successfully."
+          : `Error: ${result.error}`;
+      } catch (error) {
+        document.getElementById("responseMessage").innerText =
+          `Error: ${error.message}`;
+      }
+    });
+</script> -->
+
+<style lang="scss">
+  .header {
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-left: 10px;
+    }
+  }
+  form {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: auto;
+
+    button {
+      border: 1px solid black;
+      padding: 5px 30px;
+    }
+  }
+  p {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+  }
+  img {
+    width: 120px;
+    height: auto;
+    margin: auto;
+  }
+  .wrapper {
+    display: flex;
+    width: 100%;
+
+    .kiri {
+      width: 10%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+
+      a {
+        font-size: 24px;
+        text-align: center;
+
+        &:hover {
+          color: grey;
+        }
+      }
+
+      button {
+        font-size: 24px;
+        text-align: center;
+
+        &:hover {
+          color: grey;
+        }
+      }
+    }
+    .kanan {
+      width: 90%;
+    }
+  }
+</style>

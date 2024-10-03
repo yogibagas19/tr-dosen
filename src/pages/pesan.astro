@@ -1,0 +1,170 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const nama = data.get("nama");
+    const nomor = data.get("nomor");
+    const email = data.get("email");
+    const bank = data.get("bank");
+    const jadwal = data.get("jadwal");
+    const tiket = data.get("tiket");
+    const datas = { nama, nomor, email, bank, jadwal, tiket };
+
+    await fetch("http://localhost:3211/pesan", {
+      method: "POST",
+      body: JSON.stringify(datas),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    // Do something with the data
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<Layout title="Pesan Tiket">
+  <main>
+    <img src="/assets/checkout.jpeg" alt="asdasd" class="gambar" />
+    <div class="judulpesan">
+      <div class="checkout">Checkout</div>
+      <div class="garis"></div>
+      <div class="copesan">Pesan Tiketmu Sekarang Juga</div>
+    </div>
+    <div class="bodypesan">
+      <p>Data diri Anda</p>
+      <form method="POST">
+        <div class="baris pertama">
+          <label class="nama">
+            Nama Lengkap
+            <input type="text" placeholder="nama lengkap" name="nama" />
+          </label>
+          <label class="telepon">
+            Nomor telepon
+            <input type="tel" placeholder="nomor telepon" name="nomor" />
+          </label>
+        </div>
+        <div class="baris kedua">
+          <label class="email">
+            Email
+            <input type="email" placeholder="email" name="email" />
+          </label>
+          <label class="rekening">
+            Rekening Bank
+            <input type="text" placeholder="bank yang dipakai" name="bank" />
+          </label>
+        </div>
+        <label class="jadwal">
+          Pilih Jadwal
+          <input type="date" name="jadwal" />
+        </label>
+        <label class="jumlah">
+          Jumlah Tiket
+          <input type="number" placeholder="jumlah tiket" name="tiket" />
+          x 5000
+        </label>
+        <button type="submit">Selesai</button>
+      </form>
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  .bodypesan {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    padding: 50px 70px;
+    border: 2px solid grey;
+    border-radius: 30px;
+
+    p {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    .baris {
+      display: flex;
+      flex-direction: row;
+      gap: 50px;
+    }
+
+    input {
+      border-radius: 10px;
+    }
+
+    input[type="number"] {
+      width: 28%;
+    }
+    input[type="date"] {
+      width: 30%;
+    }
+    button {
+      width: 50%;
+      text-align: center;
+      margin: auto;
+      border-radius: 20px;
+      background-color: #d9d9d9;
+      padding: 10px 0px;
+
+      &:hover {
+        background-color: #5b5b5b;
+        color: white;
+      }
+    }
+  }
+  .gambar {
+    opacity: 90%;
+    width: 100vw;
+    height: 400px;
+    position: relative;
+    filter: brightness(50%);
+    margin-bottom: 50px;
+  }
+  .judulpesan {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    color: white;
+
+    .checkout {
+      font-size: 64px;
+    }
+    .copesan {
+      font-size: 32px;
+    }
+    .garis {
+      width: 3px;
+      height: 50px;
+      background-color: white;
+    }
+  }
+  main {
+    height: 100vh;
+  }
+</style>

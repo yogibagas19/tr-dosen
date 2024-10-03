@@ -1,0 +1,252 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="FAQ">
+  <main>
+    <p>FAQ</p>
+    <div class="wrapper">
+      <div class="dropdown">
+        <div
+          class="d1"
+          data-bs-toggle="collapse"
+          href="#collapseExample"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+          onclick="rotateBox()"
+        >
+          <div class="tom">
+            <p class="d-inline-flex gap-1">
+              <div class="tombol">Apa itu Mata Air Senjoyo?</div>
+            </p>
+            <i
+              class="bi bi-chevron-down panah"
+              style="padding: 10px;margin-top: 7px;"></i>
+          </div>
+
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body isi">
+              Mata Air Senjaya adalah salah satu destinasi wisata alam yang
+              terletak di Kabupaten Senjaya, Jawa Barat. Mata air ini dikenal
+              dengan air jernih dan panorama alam yang indah.
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="d1"
+          data-bs-toggle="collapse"
+          href="#collapseExample1"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+          style="margin-top: 50px;"
+          onclick="rotateBox1()"
+        >
+          <div class="tom">
+            <p class="d-inline-flex gap-1">
+              <div class="tombol" style="right: 290px;">
+                Berapa harga tiket masuk Mata Air Senjoyo?
+              </div>
+            </p>
+            <i
+              class="bi bi-chevron-down panah1"
+              style="padding: 10px;margin-top: 7px;"></i>
+          </div>
+
+          <div class="collapse" id="collapseExample1">
+            <div class="card card-body isi">
+              Harga tiket masuk Mata Air Senjaya adalah Rp. 5.000 untuk per
+              tiketnya.
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="d1"
+          data-bs-toggle="collapse"
+          href="#collapseExample2"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+          style="margin-top: 50px;"
+          onclick="rotateBox2()"
+        >
+          <div class="tom">
+            <p class="d-inline-flex gap-1">
+              <div class="tombol1">
+                Bagaimana cara membeli tiket masuk Mata Air Senjoyo?
+              </div>
+            </p>
+            <i
+              class="bi bi-chevron-down panah2"
+              style="padding: 10px;margin-top: 7px;"></i>
+          </div>
+
+          <div class="collapse" id="collapseExample2">
+            <div class="card card-body isi">
+              Tiket masuk Mata Air Senjaya dapat dibeli secara online melalui
+              website resmi kami. Pengunjung juga dapat membeli tiket di loket
+              tiket di lokasi.
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="d1"
+          data-bs-toggle="collapse"
+          href="#collapseExample3"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+          style="margin-top: 50px;"
+          onclick="rotateBox3()"
+        >
+          <div class="tom">
+            <p class="d-inline-flex gap-1">
+              <div class="tombol2" style="right: 110px;">
+                Apakah hewan peliharaan diperbolehkan masuk?
+              </div>
+            </p>
+            <i
+              class="bi bi-chevron-down panah3"
+              style="padding: 10px;margin-top: 7px;"></i>
+          </div>
+
+          <div class="collapse" id="collapseExample3">
+            <div class="card card-body isi">
+              Hewan peliharaan diperbolehkan masuk ke area Mata Air Senjaya,
+              namun pengunjung diminta untuk menjaga kebersihan dan keamanan
+              area.
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="d1"
+          data-bs-toggle="collapse"
+          href="#collapseExample4"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+          style="margin-top: 50px;"
+          onclick="rotateBox4()"
+        >
+          <div class="tom">
+            <p class="d-inline-flex gap-1">
+              <div class="tombol2">
+                Kapan waktu operasional Mata Air Senjoyo?
+              </div>
+            </p>
+            <i
+              class="bi bi-chevron-down panah4"
+              style="padding: 10px;margin-top: 7px;"></i>
+          </div>
+
+          <div class="collapse" id="collapseExample4">
+            <div class="card card-body isi">
+              Mata Air Senjaya buka setiap hari dari pukul 07.00 - 17.00 WIB.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<!-- <script>
+  function rotateBox() {
+    var box = document.querySelector(".panah");
+    box.classList.toggle("rotate");
+  }
+  function rotateBox1() {
+    var box = document.querySelector(".panah1");
+    box.classList.toggle("rotate");
+  }
+  function rotateBox2() {
+    var box = document.querySelector(".panah2");
+    box.classList.toggle("rotate");
+  }
+  function rotateBox3() {
+    var box = document.querySelector(".panah3");
+    box.classList.toggle("rotate");
+  }
+  function rotateBox4() {
+    var box = document.querySelector(".panah4");
+    box.classList.toggle("rotate");
+  }
+</script> -->
+
+<style>
+  main {
+    width: 80%;
+    margin: auto;
+    height: 100vh;
+  }
+  p {
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .panah.rotate {
+    transform: rotate(180deg);
+  }
+  .panah1.rotate {
+    transform: rotate(180deg);
+  }
+  .panah2.rotate {
+    transform: rotate(180deg);
+  }
+  .panah3.rotate {
+    transform: rotate(180deg);
+  }
+  .panah4.rotate {
+    transform: rotate(180deg);
+  }
+  .tom {
+    display: flex;
+    justify-content: space-between;
+    /* border-radius: 15px;
+            border: solid 1px black; */
+  }
+
+  .dropdown {
+    display: block;
+  }
+
+  .isi {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  .dropdown .d1 {
+    justify-content: center;
+    text-align: left;
+    margin-right: 100px;
+    margin-left: 100px;
+    border-radius: 15px;
+    border: solid 1px black;
+  }
+
+  .tombol2 {
+    padding: 10px;
+    position: relative;
+    right: 20px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .tombol1 {
+    padding: 10px;
+    position: relative;
+    right: 95px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .tombol {
+    padding: 10px;
+    position: relative;
+    right: 200px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+</style>

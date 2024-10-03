@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Fasilitas">
+  <main>
+    <div class="judul">Fasilitas</div>
+    <div class="container">
+      <div class="pertama baris">
+        <span class="material-symbols-outlined"> wc </span>
+        <div class="garis"></div>
+        <div class="teks">
+          <div class="judulbaris">Toilet dan Kamar Mandi</div>
+          Mata Air Senjaya menyediakan toilet dan kamar mandi yang bersih dan terawat
+          untuk kenyamanan pengunjung. Terdapat toilet dan kamar mandi yang terpisah
+          untuk pria dan wanita.
+        </div>
+      </div>
+      <div class="kedua baris">
+        <span class="material-symbols-outlined"> mosque </span>
+        <div class="garis"></div>
+        <div class="teks">
+          <div class="judulbaris">Tempat Beribadah</div>
+          Disediakan mushola yang nyaman dan bersih bagi pengunjung yang ingin melakukan
+          ibadah selama berada di Mata Air Senjaya.
+        </div>
+      </div>
+      <div class="ketiga baris">
+        <span class="material-symbols-outlined"> restaurant </span>
+        <div class="garis"></div>
+        <div class="teks">
+          <div class="judulbaris">Warung/Kantin</div>
+          Terdapat beberapa warung/kantin yang menyediakan makanan, minuman, dan
+          camilan segar. Pengunjung dapat membeli bekal atau bersantap di area yang
+          telah disediakan.
+        </div>
+      </div>
+      <div class="keempat baris">
+        <span class="material-symbols-outlined"> local_parking </span>
+        <div class="garis"></div>
+        <div class="teks">
+          <div class="judulbaris">Area Parkir yang Luas</div>
+          Mata Air Senjaya memiliki area parkir yang luas dan aman, baik untuk kendaraan
+          roda dua maupun roda empat. Petugas keamanan akan membantu mengatur lalu
+          lintas dan ketertiban parkir.
+        </div>
+      </div>
+      <div class="kelima baris">
+        <span class="material-symbols-outlined"> nature_people </span>
+        <div class="garis"></div>
+        <div class="teks">
+          <div class="judulbaris">Gazebo dan Sarana Rekreasi</div>
+          Tersedia gazebo-gazebo yang nyaman dan teduh, dilengkapi dengan meja dan
+          kursi. Pengunjung dapat beristirahat, bersantai, atau menikmati makanan
+          dan minuman di gazebo tersebut. Selain itu, terdapat area permainan anak,
+          joging track, dan spot-spot foto yang instagramable.
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .judul {
+    width: 80%;
+    font-size: 36px;
+    margin: auto;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  span {
+    font-size: 180px;
+    margin-right: 100px;
+  }
+  .garis {
+    width: 5px;
+    height: 200px;
+    background-color: black;
+    border-radius: 30px;
+  }
+  .baris {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 40px;
+  }
+  .teks {
+    margin-left: 100px;
+    width: 70%;
+    font-size: 20px;
+    .judulbaris {
+      font-weight: 600;
+      font-size: 24px;
+    }
+  }
+</style>
